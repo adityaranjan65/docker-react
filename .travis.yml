@@ -9,3 +9,13 @@ before_install:
 
 script:
   - docker run -e CI=true aditya/docker-react npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: ""
+  app: "docker-react"
+  env: "Docker-env"
+  bucket_name: ""
+  bucket_path: "docker-react"
+  on:
+    branch: master
